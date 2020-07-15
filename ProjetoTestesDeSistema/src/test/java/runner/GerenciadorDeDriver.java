@@ -12,7 +12,7 @@ public class GerenciadorDeDriver {
 
 	public static WebDriver abrirDriver() {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\w.galindo.da.silva\\git\\repository\\TestesSistema\\src\\test\\resources\\chromedriver.exe");
+				"C:\\Users\\ewertton.souza\\git\\repository\\TestesSistema\\src\\test\\resources\\chromedriver.exe");
 		System.setProperty("webdriver.chrome.silentOutput", "true");
 		Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
 		driver = new ChromeDriver();
