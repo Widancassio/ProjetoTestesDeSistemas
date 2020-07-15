@@ -5,18 +5,16 @@ Feature: Como usuário Apple eu quero acessar o Manual do iPhone
   Scenario: Visualizar manual do iPhone
 	  Given o usuário acessa o site "apple.com.br"
 	  When usuário clica no botão suporte
-	                 é exibida a página de suporte
-	  And clicar no ícone iPhone    
-	                 é exibida a página suporte do iphone 
+	  And clica no ícone iPhone    
 	  And o usuário clica no botão Manual do usuário do iPhone
-		Then é exibido o manual do iphone. 
+		Then é exibido o manual do iPhone. 
 
 Feature: Como usuário Apple eu quero acessar a lista de programas de reparo e troca
 	para saber quais programas estão disponíveis
 
 @ts-prj-final @ListaProgramadeReparo
 	Scenario: Visualizar lista de programas de extensão de reparo e troca
-		Given: O usuário acessa a área de suporte
+		Given: o usuário acessa a área de suporte
 		When: o usuário clica no botão todos os programas
 		Then: é exibida a lista dos Programas de extensão de reparo e troca
 
@@ -30,10 +28,14 @@ Feature: Como usuário Apple eu quero alterar o produto que receberá o suporte
 	  When usuário clica no link Alterar produto               
 	  And seleciona o novo produto
 	  Then tela de suporte do novo produto é exibida
-		Alerta para suporte limitado nas terceirizadas 
-		Scenario busca por assistências autorizadas
+		
+		
+Feature: Alerta para suporte limitado nas terceirizadas 
+
+@ts-prj-final @BuscaAssistenciaAutorizada
+	Scenario: busca por assistências autorizadas
 		Given o usuário acessa a área de suporte
-		And clica no botão Centro de Serviço Autorizado Apple (AASP)
+		When clica no botão Centro de Serviço Autorizado Apple (AASP)
 		And clica no botão serviço e suporte
 		Then é exibida a mensagem “As opções de suporte da Apple estão limitadas no momento. Agradecemos sua paciência e compreensão.”.
 
@@ -97,10 +99,10 @@ Feature: Como cliente Apple eu quero limpar os filtros inseridos para que
 
 @ts-prj-final @ResetarFiltros
   Scenario: Limpar filtros de exibição do Newsroom
-    Given o usuário acesse a pagina de newsrooom
+    Given o usuário acesse a pagina de Newsroom
     And clica em Arquivo
     And clica em um filtro por tópico
-                                                    **Será habilitado o botão resetar 
+                                                    #Será habilitado o botão resetar 
     When o usuário clica no botão resetar
     Then os filtros serão resetados 
     And será exibido todos os tópicos
