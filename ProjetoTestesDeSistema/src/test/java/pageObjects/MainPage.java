@@ -13,7 +13,7 @@ public class MainPage {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
-	private String pageUrl = "https://www.seleniumeasy.com/test/";
+	private String pageUrl = "https://www.apple.com.br";
 
 	private By navBarMenuEsquerdo = By.cssSelector(".navbar-nav");
 	private By menuLateralExemplos = By.cssSelector(".navbar-right");
