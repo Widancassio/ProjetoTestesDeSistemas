@@ -1,5 +1,4 @@
-Feature: Como administrador eu quero cadastrar novos usuários 
-				para que os mesmos possam acessar o sistema.
+Feature: Como consumidor desejo utilizar as funcionalidades da loja para efetuar compras
 
 @ts-prj-final @RemoverProdutoSacola
   Scenario: Remover produto da sacola
@@ -38,13 +37,4 @@ Feature: Como administrador eu quero cadastrar novos usuários
     And a quantidade de itens da Sacola da navbar e alterada.
 
 
-@ts-prj-final @ResetarFiltros
-  Scenario: Limpar filtros de exibicao do Newsroom
-    Given o usuario acesse a pagina de Newsroom
-    And clica em Arquivo
-    And clica em um filtro por topico
-                                                    #Será habilitado o botão resetar 
-    When o usuario clica no botao resetar
-    Then os filtros serao resetados 
-    And sera exibido todos os topicos
-    And o botao sera removido da tela
+x

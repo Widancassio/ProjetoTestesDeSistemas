@@ -1,4 +1,4 @@
-Feature: Como usuário Apple eu quero acessar o Manual do iPhone para ter obter guia de uso do aparelho. 
+Feature: Como usuário Apple eu quero acessar a area de suporte para obter ajuda. 
 
 @ts-prj-final @ManualiPhone
   Scenario: Visualizar manual do iPhone
@@ -34,11 +34,6 @@ Feature: Como usuário Apple eu quero acessar o Manual do iPhone para ter obter g
 		Then e exibida a mensagem "As opcoes de suporte da Apple estao limitadas no momento. Agradecemos sua paciencia e compreensao."
 
 
-@ts-prj-final @BuscaPorLojas
-  Scenario: Buscar por lojas no Brasil
-	  Given o usuario realiza a busca por loja             
-	  When o usuario clica no botao Encontre uma loja  
-	  And clica em lista completa de lojas
-	  Then e exibida a lista de lojas do brasil 
+
 
 
