@@ -35,4 +35,3 @@ Feature: Como consumidor desejo utilizar as funcionalidades da loja para efetuar
     When o usuario alterar a quantidade desejada do produto
     Then o valor total da compra e alterado
     And a quantidade de itens da Sacola da navbar e alterada.
-x
