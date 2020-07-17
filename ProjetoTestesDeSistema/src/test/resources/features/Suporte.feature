@@ -1,8 +1,8 @@
-Feature: Como usuário Apple eu quero acessar a area de suporte para obter ajuda. 
+Feature: Como usuario Apple eu quero acessar a area de suporte para obter ajuda. 
 
 @ts-prj-final @ManualiPhone
   Scenario: Visualizar manual do iPhone
-	  Given o usuario acessa o site "apple.com.br"
+	  Given o usuario acessa o site Apple
 	  When usuario clica no botao suporte
 	  And clica no icone iPhone    
 	  And o usuario clica no botao Manual do usuario do iPhone

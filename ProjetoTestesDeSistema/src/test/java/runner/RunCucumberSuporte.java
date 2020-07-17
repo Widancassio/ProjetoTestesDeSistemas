@@ -7,7 +7,9 @@ import io.cucumber.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = { "src/test/resources/features/Suporte.feature" },
 
-		glue = { "suporteStepDefinitions" },
+		tags = { "@ManualiPhone" },
+
+		glue = { "stepDefinitions" },
 
 		plugin = { "pretty" },
 

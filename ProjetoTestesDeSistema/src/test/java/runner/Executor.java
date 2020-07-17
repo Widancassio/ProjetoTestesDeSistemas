@@ -7,7 +7,7 @@ import pageObjects.MainPage;
 
 public class Executor {
 
-	WebDriver gDriver = GerenciadorDeDriver.abrirDriver();
+	WebDriver gDriver = GerenciadorDeDriver.getDriver();
 	MainPage mainPage = new MainPage(gDriver);
 
 	@Test
