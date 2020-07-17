@@ -22,9 +22,8 @@ Feature: Como consumidor desejo utilizar as funcionalidades da loja para efetuar
     Given o usuario acesse o produto "iPhone"
     And selecione o produto "iPhone 11 Pro"
     When usuario clicar no botao Comprar
-    And escolher o "Modelo"
-    And escolher a "Cor"
-    And nao escolher a "Capacidade"
+    And selecionar as informacoes do produto
+    But nao escolher a "Capacidade"
     Then o botao ‘Colocar na sacola’ nao e exibido
 
 
