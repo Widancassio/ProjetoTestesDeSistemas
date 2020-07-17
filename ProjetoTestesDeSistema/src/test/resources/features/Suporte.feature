@@ -24,7 +24,6 @@ Feature: Como usuário Apple eu quero acessar a area de suporte para obter ajuda.
 	  And seleciona o novo produto
 	  Then tela de suporte do novo produto e exibida
 		
-		
 
 @ts-prj-final @BuscaAssistenciaAutorizada
 	Scenario: busca por assistencias autorizadas
