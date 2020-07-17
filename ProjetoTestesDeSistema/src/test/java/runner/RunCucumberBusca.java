@@ -5,9 +5,9 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = { "src/test/resources/features" },
+@CucumberOptions(features = { "src/test/resources/features/Busca.feature" },
 
-		glue = { "newsroomStepDefinitions", "buscaStepDefinitions", "suporteStepDefinitions", "lojaStepDefinitions" },
+		glue = { "buscaStepDefinitions" },
 
 		plugin = { "pretty" },
 
@@ -15,6 +15,6 @@ import io.cucumber.junit.Cucumber;
 
 		strict = true)
 
-public class RunCucumber {
+public class RunCucumberBusca {
 
 }
