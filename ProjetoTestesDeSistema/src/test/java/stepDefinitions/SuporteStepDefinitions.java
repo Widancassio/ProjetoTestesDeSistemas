@@ -64,7 +64,7 @@ public class SuporteStepDefinitions {
 	@Then("e exibido o manual do iPhone")
 	public void exibirManualIPhone() {
 		String msgTelaManual = supPagObj.validaPaginaManual();
-		assertEquals("Mensagem não condiz com a esperada!", Constantes.MsgManual, msgTelaManual);
+		assertEquals("Mensagem não condiz com a esperada!", Constantes.MSG_MANUAL, msgTelaManual);
 	}
 
 	/**
@@ -123,7 +123,7 @@ public class SuporteStepDefinitions {
 	// step responsavel por validar a mensagem exibida e confirmar tela correta
 	@Then("e exibida uma mensagem de alerta")
 	public void validarPaginaServSuporte() {
-		assertEquals("Mensagem não condiz com esperado!", Constantes.MsgPagAASPServSuporte,
+		assertEquals("Mensagem não condiz com esperado!", Constantes.MSG_PAG_AASP_SERV_SUPORTE,
 				supPagObj.validarMsgTelaAASP());
 	}
 
@@ -143,7 +143,7 @@ public class SuporteStepDefinitions {
 	// step responsavel por validar a lista de programas retornada
 	@Then("e exibida a lista dos Programas de extensao de reparo e troca")
 	public void validarListaProgramas() {
-		assertEquals("Mensagem não condiz com esperado!", Constantes.MsgPagTodosProgramas,
+		assertEquals("Mensagem não condiz com esperado!", Constantes.MSG_PAG_TODOS_PROGRAMAS,
 				supPagObj.msgTelaTdsProgramas());
 		assertTrue("A lista de programas não está correta", supPagObj.validarTodosProgramas());
 	}

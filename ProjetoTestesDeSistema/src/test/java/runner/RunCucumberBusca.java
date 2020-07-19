@@ -7,7 +7,9 @@ import io.cucumber.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = { "src/test/resources/features/Busca.feature" },
 
-		glue = { "buscaStepDefinitions" },
+		tags = { "@BuscaPorLojas" },
+
+		glue = { "stepDefinitions" },
 
 		plugin = { "pretty" },
 

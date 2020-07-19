@@ -7,41 +7,60 @@ public class MetodosAuxiliares {
 
 	String msgProduto;
 	List<String> programas = new ArrayList<String>();
+	List<String> lojasBrasil = new ArrayList<String>();
 
+	/**
+	 * Metodos auxiliares para os cenários da funcionalidade Suporte
+	 * 
+	 * 
+	 */
 	public String validaMsgProdutoSuporte(String produto) {
 		if (produto.equals("Mac")) {
-			msgProduto = Constantes.MsgNovoPdtSuporteMac;
+			msgProduto = Constantes.MSG_NOVO_PDT_SUPORTE_MAC;
 		} else if (produto.equals("IPad")) {
-			msgProduto = Constantes.MsgNovoPdtSuporteIPad;
+			msgProduto = Constantes.MSG_NOVO_PDT_SUPORTE_IPAD;
 		} else if (produto.equals("IPhone")) {
-			msgProduto = Constantes.MsgNovoPdtSuporteIPhone;
+			msgProduto = Constantes.MSG_NOVO_PDT_SUPORTE_IPHONE;
 		} else if (produto.equals("Apple Watch")) {
-			msgProduto = Constantes.MsgNovoPdtSuporteAppleWatch;
+			msgProduto = Constantes.MSG_NOVO_PDT_SUPORTE_APPLE_WATCH;
 		} else if (produto.equals("AirPods")) {
-			msgProduto = Constantes.MsgNovoPdtSuporteAirPods;
+			msgProduto = Constantes.MSG_NOVO_PDT_SUPORTE_AIRPODS;
 		}
 		return msgProduto;
 	}
 
 	public void preencherListaDeProgramas() {
-		programas.add(Constantes.descricaoPrograma1);
-		programas.add(Constantes.descricaoPrograma2);
-		programas.add(Constantes.descricaoPrograma3);
-		programas.add(Constantes.descricaoPrograma4);
-		programas.add(Constantes.descricaoPrograma5);
-		programas.add(Constantes.descricaoPrograma6);
-		programas.add(Constantes.descricaoPrograma7);
-		programas.add(Constantes.descricaoPrograma8);
-		programas.add(Constantes.descricaoPrograma9);
-		programas.add(Constantes.descricaoPrograma10);
-		programas.add(Constantes.descricaoPrograma11);
-		programas.add(Constantes.descricaoPrograma12);
-		programas.add(Constantes.descricaoPrograma13);
-		programas.add(Constantes.descricaoPrograma14);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_1);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_2);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_3);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_4);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_5);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_6);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_7);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_8);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_9);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_10);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_11);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_12);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_13);
+		programas.add(Constantes.DESCRICAO_PROGRAMA_14);
 	}
 
 	public List<String> getProgramas() {
 		return programas;
 	}
 
+	/**
+	 * Metodos auxiliares para os cenários da funcionalidade Loja
+	 * 
+	 * 
+	 */
+	public void preencherListaLojasBrasil() {
+		lojasBrasil.add(Constantes.LOJA_RJ);
+		lojasBrasil.add(Constantes.LOJA_SP);
+	}
+
+	public List<String> getLojasBrasil() {
+		return lojasBrasil;
+	}
 }
