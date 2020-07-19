@@ -30,10 +30,9 @@ Feature: Como usuario Apple eu quero acessar a area de suporte para obter ajuda.
 
 @ts-prj-final @BuscaAssistenciaAutorizada
 	Scenario: busca por assistencias autorizadas
-		Given 
-		When clica no botao Centro de Servico Autorizado Apple (AASP)
+		When usuario clica no botao Centro de Servico Autorizado Apple AASP
 		And clica no botao servico e suporte
-		Then e exibida a mensagem "As opcoes de suporte da Apple estao limitadas no momento. Agradecemos sua paciencia e compreensao."
+		Then e exibida uma mensagem de alerta
 
 
 

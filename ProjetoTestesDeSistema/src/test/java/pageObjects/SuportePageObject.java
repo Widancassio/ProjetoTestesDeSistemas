@@ -27,6 +27,9 @@ public class SuportePageObject {
 	private By novoPdtAppleWatch = By.cssSelector(".all-product-button-container li:nth-child(4)");
 	private By novoPdtAirPods = By.cssSelector(".all-product-button-container li:nth-child(5)");
 	private By msgTelaNovoPdtSuporte = By.cssSelector(".main-body-hero-container h1");
+	private By linkAASP = By.cssSelector(".main > div:nth-child(11) p a:nth-child(2)");
+	private By servSupAASP = By.cssSelector("#service img");
+	private By msgTelaAASPSevSuporte = By.cssSelector(".page-body #qp-awareness-content");
 
 	// Ações
 
@@ -84,6 +87,18 @@ public class SuportePageObject {
 
 	public String validaPaginaNovoPdtSuporte() {
 		return driver.findElement(msgTelaNovoPdtSuporte).getText();
+	}
+
+	public void clicarLinkAASP() {
+		driver.findElement(linkAASP).click();
+	}
+
+	public void clicarLinkServicoSuporteAASP() {
+		driver.findElement(servSupAASP).click();
+	}
+
+	public String validarMsgTelaAASP() {
+		return driver.findElement(msgTelaAASPSevSuporte).getText();
 	}
 
 }
