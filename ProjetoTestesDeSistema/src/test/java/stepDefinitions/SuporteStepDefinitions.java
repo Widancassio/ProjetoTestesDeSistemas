@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 
 import auxiliares.Constantes;
+import auxiliares.MetodosValidadores;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,6 +16,7 @@ public class SuporteStepDefinitions {
 
 	private WebDriver driver = GerenciadorDeDriver.getDriver();
 	private SuportePageObject supPagObj;
+	private MetodosValidadores metValida = new MetodosValidadores();
 
 	// esse step será executado sempre antes dos próximos pois o mesmo está definido
 	// como background.
@@ -59,45 +61,23 @@ public class SuporteStepDefinitions {
 	}
 
 	@When("usuario clica no link Alterar produto")
-	public void usuario_clica_no_link_Alterar_produto() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void alterarProdutoSuporte() throws InterruptedException {
+		Thread.sleep(3000);
+		supPagObj.alterarPdtSuporte();
 	}
 
-	@When("seleciona o novo produto")
-	public void seleciona_o_novo_produto() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@When("seleciona o produto {string}")
+	public void selecionarNovoProduto(String produto) throws InterruptedException {
+		Thread.sleep(3000);
+		supPagObj.selecionarNovoPdtSuporte(produto);
 	}
 
-	@Then("tela de suporte do novo produto e exibida")
-	public void tela_de_suporte_do_novo_produto_e_exibida() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Given("o usuario acessa a area de suporte")
-	public void o_usuario_acessa_a_area_de_suporte() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@When("clica no botao Centro de Servico Autorizado Apple \\(AASP)")
-	public void clica_no_botao_Centro_de_Servico_Autorizado_Apple_AASP() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@When("clica no botao servico e suporte")
-	public void clica_no_botao_servico_e_suporte() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("e exibida a mensagem {string}")
-	public void e_exibida_a_mensagem(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Then("tela de suporte do {string} e exibida")
+	public void validaMsgTelaNovoPdtSuporte(String produto) throws InterruptedException {
+		Thread.sleep(3000);
+		String msgTelaNovoPdtSuporte = supPagObj.validaPaginaNovoPdtSuporte();
+		assertEquals("Mensagem não condiz com o produto escolhido!", metValida.validaMsgProdutoSuporte(produto),
+				msgTelaNovoPdtSuporte);
 	}
 
 }

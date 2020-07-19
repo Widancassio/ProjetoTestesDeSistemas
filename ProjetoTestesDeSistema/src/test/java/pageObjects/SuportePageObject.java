@@ -20,6 +20,13 @@ public class SuportePageObject {
 	private By msgTelaManual = By.cssSelector("#header-section .Name");
 	private By linkSaibaMaisReparos = By.cssSelector(".main .u-layout-item:nth-child(2) a");
 	private By linkIniciarReparo = By.cssSelector("#faq-regular .container:nth-child(1) p:nth-child(2) a");
+	private By linkAlterarProduto = By.cssSelector("body #aw-page-wrapper .change-product-link > span");
+	private By novoPdtMac = By.cssSelector(".all-product-button-container li:nth-child(1)");
+	private By novoPdtIPad = By.cssSelector(".all-product-button-container li:nth-child(2)");
+	private By novoPdtIPhone = By.cssSelector(".all-product-button-container li:nth-child(3)");
+	private By novoPdtAppleWatch = By.cssSelector(".all-product-button-container li:nth-child(4)");
+	private By novoPdtAirPods = By.cssSelector(".all-product-button-container li:nth-child(5)");
+	private By msgTelaNovoPdtSuporte = By.cssSelector(".main-body-hero-container h1");
 
 	// Ações
 
@@ -55,6 +62,28 @@ public class SuportePageObject {
 	public void iniciarReparoMac() {
 		driver.findElement(linkSaibaMaisReparos).click();
 		driver.findElement(linkIniciarReparo).click();
+	}
+
+	public void alterarPdtSuporte() {
+		driver.findElement(linkAlterarProduto).click();
+	}
+
+	public void selecionarNovoPdtSuporte(String produto) {
+		if (produto.equals("Mac")) {
+			driver.findElement(novoPdtMac).click();
+		} else if (produto.equals("IPad")) {
+			driver.findElement(novoPdtIPad).click();
+		} else if (produto.equals("IPhone")) {
+			driver.findElement(novoPdtIPhone).click();
+		} else if (produto.equals("Apple Watch")) {
+			driver.findElement(novoPdtAppleWatch).click();
+		} else if (produto.equals("AirPods")) {
+			driver.findElement(novoPdtAirPods).click();
+		}
+	}
+
+	public String validaPaginaNovoPdtSuporte() {
+		return driver.findElement(msgTelaNovoPdtSuporte).getText();
 	}
 
 }

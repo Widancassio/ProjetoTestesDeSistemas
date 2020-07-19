@@ -24,8 +24,8 @@ Feature: Como usuario Apple eu quero acessar a area de suporte para obter ajuda.
 	  Given o usuario escolha o produto "Mac"
 	  And inicie uma solicitacao de servico
 	  When usuario clica no link Alterar produto               
-	  And seleciona o novo produto
-	  Then tela de suporte do novo produto e exibida
+	  And seleciona o produto "IPad"
+	  Then tela de suporte do "IPad" e exibida
 		
 
 @ts-prj-final @BuscaAssistenciaAutorizada
