@@ -1,6 +1,5 @@
 Feature: Como usuario Apple eu quero acessar a area de suporte para obter ajuda. 
 
-
 	Background: 
 		Given o usuario acessa o site Apple
 		And o usuario esteja na area de suporte
@@ -9,14 +8,13 @@ Feature: Como usuario Apple eu quero acessar a area de suporte para obter ajuda.
   Scenario: Visualizar manual do iPhone
 	  Given o usuario escolha o produto "IPhone"
 	  When o usuario clica no botao Manual do usuario do iPhone
-		Then e exibido o manual do iPhone. 
+		Then e exibido o manual do iPhone
 
 
-@ts-prj-final @ListaProgramadeReparo
+@ts-prj-final @ListaProgramaDeReparo
 	Scenario: Visualizar lista de programas de extensao de reparo e troca
-		Given: 
-		When: o usuario clica no botao todos os programas
-		Then: e exibida a lista dos Programas de extensao de reparo e troca
+		When o usuario clica no botao todos os programas
+		Then e exibida a lista dos Programas de extensao de reparo e troca
 
 
 @ts-prj-final @AlterarProdutoSuporte

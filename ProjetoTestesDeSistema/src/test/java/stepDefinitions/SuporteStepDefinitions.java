@@ -1,12 +1,12 @@
 package stepDefinitions;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 
 import auxiliares.Constantes;
-import auxiliares.MetodosValidadores;
-import io.cucumber.core.backend.Container;
+import auxiliares.MetodosAuxiliares;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,11 +17,13 @@ public class SuporteStepDefinitions {
 
 	private WebDriver driver = GerenciadorDeDriver.getDriver();
 	private SuportePageObject supPagObj;
-	private MetodosValidadores metValida = new MetodosValidadores();
+	private MetodosAuxiliares metValida = new MetodosAuxiliares();
 
-	// ******* Backgrounds da funcionalidade Suporte
-	// **********************************************************************************
-
+	/**
+	 * Backgrouds
+	 * 
+	 * Passos que são utilizados em todos os cenários da funcionalidade Suporte
+	 */
 	// esse step será executado sempre antes dos próximos pois o mesmo está definido
 	// como background.
 	@Given("o usuario acessa o site Apple")
@@ -37,9 +39,11 @@ public class SuporteStepDefinitions {
 		supPagObj.clicarLinkSuporte();
 	}
 
-	// ********** Metodos do cenário Visualizar manual do iPhone
-	// *******************************************************************************
-
+	/**
+	 * Metodos do cenário: Visualizar manual do iPhone
+	 * 
+	 * @ManualiPhone
+	 */
 	// step responsavel por escolher o produto do suporte através de um clique no
 	// icone do produto desejado
 	// OBS este Given também está sendo usado no cenário @AlterarProdutoSuporte
@@ -57,16 +61,19 @@ public class SuporteStepDefinitions {
 
 	// step responsavel por realizar a assertiva com a mensagem de exibição da
 	// pagina do manual do iphone
-	@Then("e exibido o manual do iPhone.")
+	@Then("e exibido o manual do iPhone")
 	public void exibirManualIPhone() {
 		String msgTelaManual = supPagObj.validaPaginaManual();
-		assertEquals("Mensagem não condiz com a esperada!", Constantes.expectedMsgManual, msgTelaManual);
+		assertEquals("Mensagem não condiz com a esperada!", Constantes.MsgManual, msgTelaManual);
 	}
 
-	// ********** Metodos do cenário Alterar produto que recebera
-	// suporte***********************************************************************
-	// step responsavel por iniciar uma nova solicitação de serviço de reparo para o
-	// produto
+	/**
+	 * Metodos do cenário: Alterar produto que recebera suporte
+	 * 
+	 * @AlterarProdutoSuporte
+	 */
+	// step responsavel por iniciar uma nova solicitação de
+	// serviço de reparo para o produto
 	@Given("inicie uma solicitacao de servico")
 	public void iniciarSolicitacaoServico() {
 		supPagObj.iniciarReparoMac();
@@ -95,8 +102,12 @@ public class SuporteStepDefinitions {
 				msgTelaNovoPdtSuporte);
 	}
 
-	// ********** Metodos do cenário Alterar produto que recebera
-	// suporte***********************************************************************
+	/**
+	 * Metodos do cenário: busca por assistencias autorizadas
+	 * 
+	 * @BuscaAssistenciaAutorizada
+	 * 
+	 */
 	// step responsavel por clicar no link da pagina AASP
 	@When("usuario clica no botao Centro de Servico Autorizado Apple AASP")
 	public void clicarLinkAASP() {
@@ -112,8 +123,28 @@ public class SuporteStepDefinitions {
 	// step responsavel por validar a mensagem exibida e confirmar tela correta
 	@Then("e exibida uma mensagem de alerta")
 	public void validarPaginaServSuporte() {
-		assertEquals("Mensagem não condiz com esperado!", Constantes.expectedMsgPagAASPServSuporte,
+		assertEquals("Mensagem não condiz com esperado!", Constantes.MsgPagAASPServSuporte,
 				supPagObj.validarMsgTelaAASP());
 	}
 
+	/**
+	 * Metodos do cenário: Visualizar lista de programas de extensao de reparo e
+	 * troca
+	 * 
+	 * @ListaProgramaDeReparo
+	 * 
+	 */
+	// step responsavel por encontrar e clicar no link Todos os programas
+	@When("o usuario clica no botao todos os programas")
+	public void clicarLinkTodosProgramas() {
+		supPagObj.clicarLinkTdsProgramas();
+	}
+
+	// step responsavel por validar a lista de programas retornada
+	@Then("e exibida a lista dos Programas de extensao de reparo e troca")
+	public void validarListaProgramas() {
+		assertEquals("Mensagem não condiz com esperado!", Constantes.MsgPagTodosProgramas,
+				supPagObj.msgTelaTdsProgramas());
+		assertTrue("A lista de programas não está correta", supPagObj.validarTodosProgramas());
+	}
 }

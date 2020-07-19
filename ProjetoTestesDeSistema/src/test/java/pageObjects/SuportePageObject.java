@@ -1,18 +1,23 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SuportePageObject {
+import auxiliares.MetodosAuxiliares;
 
-	// Seletores
+public class SuportePageObject {
 
 	private WebDriver driver;
 	private WebDriverWait wait;
 	private String pageUrl = "https://www.apple.com/br/";
+	private List<WebElement> programas;
+	private MetodosAuxiliares metValida = new MetodosAuxiliares();
 
-	private By navBar = By.cssSelector("#ac-globalnav");
+	// Seletores
 	private By linkSuporte = By.cssSelector(".ac-gn-support");
 	private By iconeIPhoneSuporte = By.cssSelector(".as-imagegrid-img-cont img");
 	private By iconeMacSuporte = By.cssSelector(".as-imagegrid .as-imagegrid-item + div img");
@@ -30,11 +35,17 @@ public class SuportePageObject {
 	private By linkAASP = By.cssSelector(".main > div:nth-child(11) p a:nth-child(2)");
 	private By servSupAASP = By.cssSelector("#service img");
 	private By msgTelaAASPSevSuporte = By.cssSelector(".page-body #qp-awareness-content");
+	private By linkTodosProgramas = By.cssSelector(".main div:last-child ul li:last-child a");
+	private By msgPaginaTodosProgramas = By.cssSelector(".main .table-responsive h1");
+	private By listaDeProgramas = By.cssSelector(".main section .icon-chevronright");
 
 	// Ações
-
 	public SuportePageObject(WebDriver driver) {
 		this.driver = driver;
+	}
+
+	public SuportePageObject() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public SuportePageObject acessarPagina() {
@@ -99,6 +110,32 @@ public class SuportePageObject {
 
 	public String validarMsgTelaAASP() {
 		return driver.findElement(msgTelaAASPSevSuporte).getText();
+	}
+
+	public void clicarLinkTdsProgramas() {
+		driver.findElement(linkTodosProgramas).click();
+	}
+
+	public String msgTelaTdsProgramas() {
+		return driver.findElement(msgPaginaTodosProgramas).getText();
+	}
+
+	// compara os elementos retornados da pagina com os objetos que temos na base
+	// e retorna true ou false
+	public boolean validarTodosProgramas() {
+		int cont = 0;
+		metValida.preencherListaDeProgramas();
+		programas = driver.findElements(listaDeProgramas);
+		for (int i = 0; i < programas.size(); i++) {
+			if (metValida.getProgramas().contains(programas.get(i).getText())) {
+				cont++;
+			}
+		}
+		if (cont == 14) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
