@@ -1,19 +1,12 @@
 package pageObjects;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import auxiliares.MetodosAuxiliares;
 
 public class LojaPageObject {
 
 	private WebDriver driver;
 	private String pageUrl = "https://www.apple.com/br/";
-	private List<WebElement> lojas;
-	private MetodosAuxiliares metValida = new MetodosAuxiliares();
 
 	// Seletores
 	private By linkMusic = By.cssSelector(".ac-gn-link-music");

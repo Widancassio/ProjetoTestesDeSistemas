@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 
 import auxiliares.Constantes;
-import auxiliares.MetodosAuxiliares;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,7 +15,6 @@ public class LojaStepDefinitions {
 
 	private WebDriver driver = GerenciadorDeDriver.getDriver();
 	private LojaPageObject lojaPageObj;
-	private MetodosAuxiliares metValida = new MetodosAuxiliares();
 
 	/**
 	 * Backgrouds
