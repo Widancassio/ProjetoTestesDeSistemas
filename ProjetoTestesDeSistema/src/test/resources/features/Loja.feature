@@ -6,7 +6,6 @@ Feature: Como consumidor desejo utilizar as funcionalidades da loja para efetuar
   @ts-prj-final @RemoverProdutoSacola
   Scenario: Remover produto da sacola
     Given exista um produto na Sacola
-    And o usuario acessa a Sacola de compras
     When usuario clicar no link Remover
     Then e exibida tela com alerta de sacola vazia
 

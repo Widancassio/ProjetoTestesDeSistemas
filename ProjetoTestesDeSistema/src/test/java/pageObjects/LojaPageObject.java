@@ -2,7 +2,6 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,7 +25,7 @@ public class LojaPageObject {
 	private By botaoColocarNaSacola = By.cssSelector(".as-pdp-displayarea button");
 	private By iconeSacolaNavbar = By.cssSelector(".ac-gn-list li:last-child");
 	private By linkSacola = By.cssSelector(".ac-gn-bagview-nav li:nth-child(1)");
-	private By linkRemoverSacola = By.cssSelector(("#cart-items .rs-iteminfo button"));
+	private By linkRemoverSacola = By.cssSelector(".rs-iteminfo-pricedetails button");
 	private By alertaSacolaVazia = By.cssSelector("#bag-content h1");
 	private By btComprarTelaAirPodsPro = By.cssSelector(".ac-ln-content .ac-ln-button");
 	private By headerSacola = By.cssSelector(".rs-bag-header");
@@ -71,7 +70,7 @@ public class LojaPageObject {
 	}
 
 	public void clicarLinkRemoverDaSacola() {
-		driver.findElement(linkRemoverSacola).click();
+		wait.until(ExpectedConditions.elementToBeClickable(linkRemoverSacola)).click();
 	}
 
 	public String alertaSacola() throws InterruptedException {

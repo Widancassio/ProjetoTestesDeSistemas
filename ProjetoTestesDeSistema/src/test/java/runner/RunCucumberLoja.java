@@ -7,7 +7,7 @@ import io.cucumber.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = { "src/test/resources/features/Loja.feature" },
 
-		tags = { "@ValidarBotaoHabilitado" },
+		tags = { "@RemoverProdutoSacola" },
 
 		glue = { "stepDefinitions" },
 
