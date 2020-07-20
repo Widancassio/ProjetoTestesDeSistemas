@@ -27,4 +27,7 @@ public class Constantes {
 	public static final String LOJA_SP = "Morumbi";
 	public static final String LOJA_RJ = "VillageMall";
 	public static final String HEADER_LOJAS = "Apple Retail Stores, Brasil";
+	public static final String MSG_SACOLA_VAZIA = "Sua sacola está vazia.";
+	public static final String HEADER_SACOLA_COM_AIR_PODS_PRO = "Veja o que está na sua sacola R$ 2.249,00.";
+	public static final String PRODUTO_AIR_PODS_PRO_SACOLA = "AirPods Pro";
 }
