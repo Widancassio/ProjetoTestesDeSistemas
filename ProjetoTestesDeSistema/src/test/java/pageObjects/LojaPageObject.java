@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,8 +33,7 @@ public class LojaPageObject {
 	private By produtoAirPodsPro = By.cssSelector("#cart-items h2 a");
 	private By modeloIPhone11Pro = By.cssSelector(".as-dimension-choices .form-selector-twocolumns:nth-child(1)");
 	private By corIPhone11Pro = By.cssSelector(".as-dimension-color .form-selector-singlecolumn:nth-child(4)");
-	private By capacidadeIPhone11Pro = By
-			.cssSelector(".as-dimension-dimensionCapacity .form-selector-singlecolumn:nth-child(1)");
+	private By capacidadeIPhone11Pro = By.cssSelector("#primary #Item3 .form-selector > div:nth-child(1)");
 	private By botaoColocarNaSacolaIPhone11Pro = By.cssSelector(".as-purchaseinfo-button button");
 	private By dropdownQtdProdutos = By.cssSelector(".rs-quantity-dropdown option:nth-child(3)");
 	private By valorTotalSacola = By.cssSelector(".rs-iteminfo-pricedetails span");
@@ -80,6 +80,7 @@ public class LojaPageObject {
 	}
 
 	public void selecionarProduto(String produto) {
+
 		if (produto.equals("Music")) {
 			driver.findElement(linkMusic).click();
 		} else if (produto.equals("iPhone")) {
@@ -123,13 +124,11 @@ public class LojaPageObject {
 
 	public void personalizarIPhone11Pro() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(modeloIPhone11Pro)).click();
-
 		wait.until(ExpectedConditions.elementToBeClickable(corIPhone11Pro)).click();
 		wait.until(ExpectedConditions.elementToBeClickable(capacidadeIPhone11Pro)).click();
 	}
 
 	public void validaBtColocaSacolaExibido() throws InterruptedException {
-//		driver.findElement(botaoColocarNaSacolaIPhone11Pro).isEnabled();
 		wait.until(ExpectedConditions.elementToBeClickable(botaoColocarNaSacolaIPhone11Pro));
 	}
 
