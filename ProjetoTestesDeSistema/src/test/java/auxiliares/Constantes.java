@@ -30,4 +30,6 @@ public class Constantes {
 	public static final String MSG_SACOLA_VAZIA = "Sua sacola está vazia.";
 	public static final String HEADER_SACOLA_COM_AIR_PODS_PRO = "Veja o que está na sua sacola R$ 2.249,00.";
 	public static final String PRODUTO_AIR_PODS_PRO_SACOLA = "AirPods Pro";
+	public static final String VALOR_TOTAL_SACOLA = "R$ 5.037,00";
+	public static final int QTD_ITENS_SACOLA = 3;
 }

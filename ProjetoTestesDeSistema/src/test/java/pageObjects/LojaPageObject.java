@@ -12,7 +12,7 @@ public class LojaPageObject {
 
 	private WebDriver driver;
 	private String pageUrl = "https://www.apple.com/br/";
-	private List<WebElement> lojas; 
+	private List<WebElement> lojas;
 	private MetodosAuxiliares metValida = new MetodosAuxiliares();
 
 	// Seletores
@@ -36,6 +36,9 @@ public class LojaPageObject {
 	private By capacidadeIPhone11Pro = By
 			.cssSelector(".as-dimension-dimensionCapacity .form-selector-singlecolumn:nth-child(1)");
 	private By botaoColocarNaSacolaIPhone11Pro = By.cssSelector(".as-purchaseinfo-button button");
+	private By dropdownQtdProdutos = By.cssSelector(".rs-quantity-dropdown option:nth-child(3)");
+	private By valorTotalSacola = By.cssSelector(".rs-iteminfo-pricedetails span");
+	private By qtdItensSacola = By.cssSelector("#ac-gn-bag .ac-gn-bag-badge-number");
 
 	// Ações
 	public LojaPageObject(WebDriver driver) {
@@ -122,11 +125,26 @@ public class LojaPageObject {
 		driver.findElement(modeloIPhone11Pro).click();
 		Thread.sleep(3000);
 		driver.findElement(corIPhone11Pro).click();
+		Thread.sleep(3000);
 		driver.findElement(capacidadeIPhone11Pro).click();
 	}
 
 	public void validaBtColocaSacolaExibido() throws InterruptedException {
 		Thread.sleep(3000);
 		driver.findElement(botaoColocarNaSacolaIPhone11Pro).isEnabled();
+	}
+
+	public void alterarQtdItensSacola() {
+		driver.findElement(dropdownQtdProdutos).click();
+	}
+
+	public String validarValorTotal() throws InterruptedException {
+		Thread.sleep(3000);
+		return driver.findElement(valorTotalSacola).getText();
+	}
+
+	public int validarQtdItensSacola() {
+		int qtdItens = Integer.parseInt(driver.findElement(qtdItensSacola).getText());
+		return qtdItens;
 	}
 }

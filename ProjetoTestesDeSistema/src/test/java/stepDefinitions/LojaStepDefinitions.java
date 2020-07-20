@@ -111,20 +111,23 @@ public class LojaStepDefinitions {
 		lojaPageObj.validaBtColocaSacolaExibido();
 	}
 
-	@Given("o usuario acesse a Sacola de compras")
-	public void o_usuario_acesse_a_Sacola_de_compras() {
-	}
-
+	/**
+	 * Alterar quantidade de produtos da sacola
+	 * 
+	 * @AlterarQuantidadeProdutoSacola
+	 */
 	@When("o usuario alterar a quantidade desejada do produto")
-	public void o_usuario_alterar_a_quantidade_desejada_do_produto() {
+	public void alterarQtdItens() {
+		lojaPageObj.alterarQtdItensSacola();
 	}
 
 	@Then("o valor total da compra e alterado")
-	public void o_valor_total_da_compra_e_alterado() {
+	public void validaValorTotalCompra() throws InterruptedException {
+		assertEquals("Valor diferente do esperado", Constantes.VALOR_TOTAL_SACOLA, lojaPageObj.validarValorTotal());
 	}
 
 	@Then("a quantidade de itens da Sacola da navbar e alterada")
-	public void a_quantidade_de_itens_da_Sacola_da_navbar_e_alterada() {
+	public void validaQtdItensSacola() {
+		assertEquals("Valor diferente do esperado", Constantes.QTD_ITENS_SACOLA, lojaPageObj.validarQtdItensSacola());
 	}
-
 }

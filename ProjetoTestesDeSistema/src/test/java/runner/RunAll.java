@@ -5,9 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = { "src/test/resources/features/Loja.feature" },
-
-		tags = { "@AlterarQuantidadeProdutoSacola" },
+@CucumberOptions(features = { "src/test/resources/features" },
 
 		glue = { "stepDefinitions" },
 
@@ -17,6 +15,6 @@ import io.cucumber.junit.Cucumber;
 
 		strict = true)
 
-public class RunCucumberLoja {
+public class RunAll {
 
 }

@@ -28,8 +28,8 @@ Feature: Como consumidor desejo utilizar as funcionalidades da loja para efetuar
 
   @ts-prj-final @AlterarQuantidadeProdutoSacola
   Scenario: Alterar quantidade de produtos da sacola
-    Given o usuario acesse a Sacola de compras
-    And exista um produto na Sacola
+    Given exista um produto na Sacola
+    And o usuario acessa a Sacola de compras
     When o usuario alterar a quantidade desejada do produto
     Then o valor total da compra e alterado
     And a quantidade de itens da Sacola da navbar e alterada
