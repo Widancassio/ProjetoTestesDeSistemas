@@ -1,48 +1,52 @@
 package stepDefinitions;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.openqa.selenium.WebDriver;
+
+import auxiliares.Constantes;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.NewsroomPageObject;
+import runner.GerenciadorDeDriver;
 
 public class NewsroomStepDefinitions {
 
+	private WebDriver driver = GerenciadorDeDriver.getDriver();
+	private NewsroomPageObject newsPageObject;
+
 	@Given("o usuario acesse a pagina de Newsroom")
-	public void o_usuario_acesse_a_pagina_de_Newsroom() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void acessarPaginaNewsroom() {
+		newsPageObject = new NewsroomPageObject(driver);
+		newsPageObject.acessarPagina();
+		newsPageObject.acessarNewsroom();
 	}
 
-	@Given("o usuario realiza algum filtro")
-	public void o_usuario_realiza_algum_filtro() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Given("o usuario realiza um filtro")
+	public void realizarFiltroNewsroom() throws InterruptedException {
+		newsPageObject.filtrarNewsroom();
 	}
 
 	@When("o usuario clica no botao resetar")
-	public void o_usuario_clica_no_botao_resetar() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void clicarBotaoResetar() throws InterruptedException {
+		newsPageObject.resetarFiltros();
 	}
 
-	@Then("os filtros serao resetados")
-	public void os_filtros_serao_resetados() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("os filtros sao resetados")
+	public void validarFiltrosResetados() {
+		assertEquals("Filtros não foram resetados", Constantes.VALOR_FILTRO_POS_RESET, newsPageObject.filtroPosReset());
 	}
 
-	@Then("serao exibidos todos os topicos")
-	public void serao_exibidos_todos_os_topicos() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("sao exibidos todos os topicos")
+	public void validarTopicosExibidos() {
+		newsPageObject.validarTopicosAll();
 	}
 
 	@Then("o botao resetar sera removido da tela")
-	public void o_botao_resetar_sera_removido_da_tela() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void validarBotaoResetarOff() {
+		assertTrue("Botão não desapareceu da tela!", newsPageObject.validaBotaoOffTela());
 	}
 
-
-
-	
 }

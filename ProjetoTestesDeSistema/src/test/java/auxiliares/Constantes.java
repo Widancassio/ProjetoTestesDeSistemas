@@ -32,4 +32,22 @@ public class Constantes {
 	public static final String PRODUTO_AIR_PODS_PRO_SACOLA = "AirPods Pro";
 	public static final String VALOR_TOTAL_SACOLA = "R$ 5.037,00";
 	public static final int QTD_ITENS_SACOLA = 3;
+	public static final String VALOR_FILTRO_POS_RESET = "Todos os tópicos";
+	public static final String TOPICO_1 = "Todos os tópicos";
+	public static final String TOPICO_2 = "Mac";
+	public static final String TOPICO_3 = "iPad";
+	public static final String TOPICO_4 = "iPhone";
+	public static final String TOPICO_5 = "iOS";
+	public static final String TOPICO_6 = "Watch";
+	public static final String TOPICO_7 = "TV";
+	public static final String TOPICO_8 = "Música";
+	public static final String TOPICO_9 = "iTunes";
+	public static final String TOPICO_10 = "iPod";
+	public static final String TOPICO_11 = "Acessórios";
+	public static final String TOPICO_12 = "Aplicativos";
+	public static final String TOPICO_13 = "Eventos";
+	public static final String TOPICO_14 = "Informações da empresa";
+	public static final String TOPICO_15 = "Notícias da loja";
+	public static final String TOPICO_16 = "Valores";
+
 }

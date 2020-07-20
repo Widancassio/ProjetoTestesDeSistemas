@@ -20,7 +20,7 @@ public class GerenciadorDeDriver {
 			Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			// driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//			driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		}
 		return driver;
 	}

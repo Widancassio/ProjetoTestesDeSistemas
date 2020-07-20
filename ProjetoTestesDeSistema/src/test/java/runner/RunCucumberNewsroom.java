@@ -7,7 +7,9 @@ import io.cucumber.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = { "src/test/resources/features/Newsroom.feature" },
 
-		glue = { "newsroomStepDefinitions" },
+		tags = { "@ResetarFiltros" },
+
+		glue = { "stepDefinitions" },
 
 		plugin = { "pretty" },
 

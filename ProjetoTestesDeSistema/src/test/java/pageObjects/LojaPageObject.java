@@ -2,11 +2,17 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import auxiliares.Constantes;
+import runner.GerenciadorDeDriver;
 
 public class LojaPageObject {
 
 	private WebDriver driver;
 	private String pageUrl = "https://www.apple.com/br/";
+	private WebDriverWait wait;
 
 	// Seletores
 	private By linkMusic = By.cssSelector(".ac-gn-link-music");
@@ -36,6 +42,7 @@ public class LojaPageObject {
 	// Ações
 	public LojaPageObject(WebDriver driver) {
 		this.driver = driver;
+		this.wait = GerenciadorDeDriver.getWait();
 	}
 
 	public LojaPageObject() {
@@ -68,7 +75,7 @@ public class LojaPageObject {
 	}
 
 	public String alertaSacola() throws InterruptedException {
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.textToBe(alertaSacolaVazia, Constantes.MSG_SACOLA_VAZIA));
 		return driver.findElement(alertaSacolaVazia).getText();
 	}
 
@@ -115,16 +122,15 @@ public class LojaPageObject {
 	}
 
 	public void personalizarIPhone11Pro() throws InterruptedException {
-		driver.findElement(modeloIPhone11Pro).click();
-		Thread.sleep(3000);
-		driver.findElement(corIPhone11Pro).click();
-		Thread.sleep(3000);
-		driver.findElement(capacidadeIPhone11Pro).click();
+		wait.until(ExpectedConditions.elementToBeClickable(modeloIPhone11Pro)).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(corIPhone11Pro)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(capacidadeIPhone11Pro)).click();
 	}
 
 	public void validaBtColocaSacolaExibido() throws InterruptedException {
-		Thread.sleep(3000);
-		driver.findElement(botaoColocarNaSacolaIPhone11Pro).isEnabled();
+//		driver.findElement(botaoColocarNaSacolaIPhone11Pro).isEnabled();
+		wait.until(ExpectedConditions.elementToBeClickable(botaoColocarNaSacolaIPhone11Pro));
 	}
 
 	public void alterarQtdItensSacola() {
@@ -132,7 +138,7 @@ public class LojaPageObject {
 	}
 
 	public String validarValorTotal() throws InterruptedException {
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.textToBe(valorTotalSacola, Constantes.VALOR_TOTAL_SACOLA));
 		return driver.findElement(valorTotalSacola).getText();
 	}
 

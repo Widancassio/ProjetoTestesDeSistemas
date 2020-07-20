@@ -8,6 +8,7 @@ public class MetodosAuxiliares {
 	String msgProduto;
 	List<String> programas = new ArrayList<String>();
 	List<String> lojasBrasil = new ArrayList<String>();
+	List<String> topicos = new ArrayList<String>();
 
 	/**
 	 * Metodos auxiliares para os cenários da funcionalidade Suporte
@@ -62,5 +63,33 @@ public class MetodosAuxiliares {
 
 	public List<String> getLojasBrasil() {
 		return lojasBrasil;
+	}
+
+	/**
+	 * Metodos auxiliares para os cenários da funcionalidade Newsroom
+	 * 
+	 * 
+	 */
+	public void preencherListaDeTopicos() {
+		topicos.add(Constantes.TOPICO_1);
+		topicos.add(Constantes.TOPICO_2);
+		topicos.add(Constantes.TOPICO_3);
+		topicos.add(Constantes.TOPICO_4);
+		topicos.add(Constantes.TOPICO_5);
+		topicos.add(Constantes.TOPICO_6);
+		topicos.add(Constantes.TOPICO_7);
+		topicos.add(Constantes.TOPICO_8);
+		topicos.add(Constantes.TOPICO_9);
+		topicos.add(Constantes.TOPICO_10);
+		topicos.add(Constantes.TOPICO_11);
+		topicos.add(Constantes.TOPICO_12);
+		topicos.add(Constantes.TOPICO_13);
+		topicos.add(Constantes.TOPICO_14);
+		topicos.add(Constantes.TOPICO_15);
+		topicos.add(Constantes.TOPICO_16);
+	}
+
+	public List<String> getTopicos() {
+		return topicos;
 	}
 }

@@ -5,8 +5,8 @@ Feature: Como profissional de imprenssa desejo obter informações de
 @ts-prj-final @ResetarFiltros
   Scenario: Limpar filtros de exibicao do Newsroom
     Given o usuario acesse a pagina de Newsroom
-    And o usuario realiza algum filtro
+    And o usuario realiza um filtro
     When o usuario clica no botao resetar
-    Then os filtros serao resetados 
-    And serao exibidos todos os topicos
+    Then os filtros sao resetados 
+    And sao exibidos todos os topicos
     And o botao resetar sera removido da tela
