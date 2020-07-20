@@ -7,7 +7,9 @@ import io.cucumber.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = { "src/test/resources/features/Loja.feature" },
 
-		glue = { "lojaStepDefinitions" },
+		tags = { "@ValidarBotaoHabilitado" },
+
+		glue = { "stepDefinitions" },
 
 		plugin = { "pretty" },
 
