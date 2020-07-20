@@ -1,107 +1,130 @@
 package stepDefinitions;
 
+import static org.junit.Assert.assertEquals;
+
+import org.openqa.selenium.WebDriver;
+
+import auxiliares.Constantes;
+import auxiliares.MetodosAuxiliares;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.LojaPageObject;
+import runner.GerenciadorDeDriver;
 
 public class LojaStepDefinitions {
 
-	@Given("o usuario acessa a Sacola de compras")
-	public void o_usuario_acessa_a_Sacola_de_compras() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	private WebDriver driver = GerenciadorDeDriver.getDriver();
+	private LojaPageObject lojaPageObj;
+	private MetodosAuxiliares metValida = new MetodosAuxiliares();
+
+	/**
+	 * Backgrouds
+	 * 
+	 * Passos que são utilizados em todos os cenários da funcionalidade Suporte
+	 */
+	// esse step será executado sempre antes dos próximos pois o mesmo está definido
+	// como background.
+	@Given("usuario acesse o site Apple")
+	public void usuarioAcessaSiteApple() {
+		lojaPageObj = new LojaPageObject(driver);
+		lojaPageObj.acessarPagina();
 	}
 
+	/**
+	 * Metodos do cenário: Remover produto da sacola
+	 * 
+	 * @RemoverProdutoSacola
+	 */
 	@Given("exista um produto na Sacola")
-	public void exista_um_produto_na_Sacola() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void inserePdtSacola() {
+		lojaPageObj.inserirProdutoSacola();
+	}
+
+	@Given("o usuario acessa a Sacola de compras")
+	public void acessarSacola() {
+		lojaPageObj.abrirSacola();
 	}
 
 	@When("usuario clicar no link Remover")
-	public void usuario_clicar_no_link_Remover() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void removerItemSacola() {
+		lojaPageObj.clicarLinkRemoverDaSacola();
 	}
 
-	@Then("e exibida tela com a mensagem {string}")
-	public void e_exibida_tela_com_a_mensagem(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("e exibida tela com alerta de sacola vazia")
+	public void validaSacolaVazia() throws InterruptedException {
+		assertEquals("Sua sacola não está vazia", Constantes.MSG_SACOLA_VAZIA, lojaPageObj.alertaSacola());
 	}
 
+	/**
+	 * Metodos do cenário: Adicionar produto na sacola
+	 * 
+	 * @AdicionarProdutoSacola
+	 */
+	// OBS: esse step é usado também no cenário @ValidarBotaoHabilitado
 	@Given("o usuario acesse o produto {string}")
-	public void o_usuario_acesse_o_produto(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void acessarProduto(String produto) {
+		lojaPageObj.selecionarProduto(produto);
 	}
 
-	@Given("selecione o produto {string}")
-	public void selecione_o_produto(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Given("selecione o produto {string} do Music")
+	public void selecionarProdutoMusic(String produto) {
+		lojaPageObj.selecionarPdtsMusic(produto);
 	}
 
 	@When("usuario clicar no botao Comprar")
-	public void usuario_clicar_no_botao_Comprar() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void clicarComprarProduto() {
+		lojaPageObj.clicarBtComprarPagDemo();
 	}
 
 	@When("clicar no botao Colocar na sacola")
-	public void clicar_no_botao_Colocar_na_sacola() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void adicionarPdtSacola() {
+		lojaPageObj.clicarBtColocarNaSacola();
 	}
 
-	@Then("tela e exibida com o Produto selecionado.")
-	public void tela_e_exibida_com_o_Produto_selecionado() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("tela e exibida com o Produto selecionado")
+	public void validarProdutoSacola() {
+		assertEquals("Header diferente do esperado!", Constantes.HEADER_SACOLA_COM_AIR_PODS_PRO,
+				lojaPageObj.validaHeaderSacola());
+		assertEquals("Produto diferente do esperado!", Constantes.PRODUTO_AIR_PODS_PRO_SACOLA,
+				lojaPageObj.validaProdutoSacola());
+	}
+
+	/**
+	 * Metodos do cenário: Validar que o botao Colocar na sacola habilita quando
+	 * todos os campos obrigatorios estao preenchidos
+	 * 
+	 * @ValidarBotaoHabilitado
+	 */
+	@Given("selecione o produto {string} do iPhone")
+	public void selecionarProdutoIPhone(String produto) {
+		lojaPageObj.selecionarPdtsIPhone(produto);
 	}
 
 	@When("selecionar as informacoes do produto")
-	public void selecionar_as_informacoes_do_produto() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void selecionarInfoProdutoIPhone11() throws InterruptedException {
+		lojaPageObj.personalizarIPhone11Pro();
 	}
 
-	@When("nao escolher a {string}")
-	public void nao_escolher_a(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("o botao ?Colocar na sacola? nao e exibido")
-	public void o_botao_Colocar_na_sacola_nao_e_exibido() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("o botao Colocar na sacola e exibido")
+	public void validarBotaoColocarSacolaExibido() throws InterruptedException {
+		lojaPageObj.validaBtColocaSacolaExibido();
 	}
 
 	@Given("o usuario acesse a Sacola de compras")
 	public void o_usuario_acesse_a_Sacola_de_compras() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
 	}
 
 	@When("o usuario alterar a quantidade desejada do produto")
 	public void o_usuario_alterar_a_quantidade_desejada_do_produto() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("o valor total da compra e alterado")
 	public void o_valor_total_da_compra_e_alterado() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Then("a quantidade de itens da Sacola da navbar e alterada.")
+	@Then("a quantidade de itens da Sacola da navbar e alterada")
 	public void a_quantidade_de_itens_da_Sacola_da_navbar_e_alterada() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
 	}
 
-
-	
 }
